@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enviar Número</title>
-</head>
-<body>
-    <h1>Formulario de Número</h1>
-    <form action="/send_email" method="POST">
-        <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="number">Número de personas:</label><br>
-        <input type="number" id="number" name="number"><br><br>
-        <input type="submit" value="Enviar">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Enviar Correo</title>
+  </head>
+  <body>
+    <h1>Enviar Correo con Número</h1>
+    <form action="/send-email" method="post">
+      <label for="numero">Ingrese un número:</label>
+      <input type="number" id="numero" name="numero" required>
+      <button type="submit">Enviar Correo</button>
     </form>
-</body>
+  </body>
 </html>
