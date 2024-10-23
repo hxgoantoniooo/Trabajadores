@@ -8,9 +8,9 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = '10032005gonzalez@gmail.com'
-app.config['MAIL_PASSWORD'] = 'hspa odbg pwxe rnqx'
-app.config['MAIL_DEFAULT_SENDER'] = '10032005gonzalez@gmail.com'
+app.config['MAIL_USERNAME'] = 'helper.apps.webservice@gmail.com'
+app.config['MAIL_PASSWORD'] = 'bnup olmq kmfq acxc'
+app.config['MAIL_DEFAULT_SENDER'] = 'Helper Apps'
 
 mail = Mail(app)
 
@@ -30,7 +30,7 @@ def send_email():
     msg.body = mensaje
 
     mail.send(msg)
-    return "Correo enviado exitosamente!"
+    return render_template('success.html', numero_personas=numero_personas, fecha=fecha)
 
 if __name__ == '__main__':
     app.run(debug=True)
