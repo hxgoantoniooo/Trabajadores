@@ -1,15 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>Enviar Correo</title>
-  </head>
-  <body>
-    <h1>Enviar Correo con Número</h1>
-    <form action="/send-email" method="post">
-      <label for="numero">Ingrese un número:</label>
-      <input type="number" id="numero" name="numero" required>
-      <button type="submit">Enviar Correo</button>
-    </form>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Reporte Diario</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-size: 18px;
+            color: #555;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enviar Reporte Diario</h1>
+        <form action="/send-email" method="POST">
+            <label for="numero_personas">Número de personas:</label>
+            <input type="text" id="numero_personas" name="numero_personas" required>
+            <button type="submit">Enviar Correo</button>
+        </form>
+        <footer>
+            <p>Reporte enviado a hugonzalezcontreras@gmail.com</p>
+        </footer>
+    </div>
+</body>
 </html>
