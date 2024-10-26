@@ -20,17 +20,29 @@ def index():
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
-    numero_personas = request.form['numero_personas']
-    destinatario = "hugonzalezcontreras@gmail.com"  # Destinatario fijo
+    # Obtener el número de trabajadores de cada día
+    data = {
+        "lunes": request.form['lunes'],
+        "martes": request.form['martes'],
+        "miércoles": request.form['miercoles'],
+        "jueves": request.form['jueves'],
+        "viernes": request.form['viernes'],
+        "sábado": request.form['sabado']
+    }
     fecha = datetime.now().strftime('%Y-%m-%d')
-
-    mensaje = f"Hoy {fecha} fueron {numero_personas} personas,\nSaludos"
-
-    msg = Message("Informe Diario", recipients=[destinatario])
+    
+    # Crear el mensaje
+    mensaje = f"Reporte semanal de trabajadores (semana del {fecha}):\n\n"
+    for dia, cantidad in data.items():
+        mensaje += f"{dia.capitalize()}: {cantidad} trabajadores\n"
+    mensaje += "\nSaludos"
+    
+    # Configurar y enviar el correo
+    msg = Message("Informe Semanal de Trabajadores", recipients=["hugonzalezcontreras@gmail.com"])
     msg.body = mensaje
 
     mail.send(msg)
-    return render_template('success.html', numero_personas=numero_personas, fecha=fecha)
+    return render_template('success.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
